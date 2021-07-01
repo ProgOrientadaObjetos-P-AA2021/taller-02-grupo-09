@@ -1,38 +1,57 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package paquete2;
 
 import java.io.Serializable;
 
 /**
  *
- * @author reroes
+ * @author Jose Cordova, Jamil Sebastian
  */
 public class PasajeMenorEdad extends PasajeInterCantonal 
         implements Serializable{
     
-    private double porcentajeAd;
+    private double descuento;
     
-    public PasajeMenorEdad(double porcentajeAd, String nombre, String ciudad, String cedula, String origen, String destino, double km, double tarifaBase, double valorPasaje) {
-        super(nombre, ciudad, cedula, origen, destino, km, tarifaBase, valorPasaje);
-        this.porcentajeAd = porcentajeAd;
+    public PasajeMenorEdad(String nombre, String ciudad, String cedula, String origen, String destino, double km, double tarifaBase, double porcentajeAd) {
+        super(nombre, ciudad, cedula, origen, destino, km, tarifaBase);
+        this.descuento = porcentajeAd;
         setValorPasaje();
     }
 
-    public double getPorcentajeAd() {
-        return porcentajeAd;
+    public double getDescuento() {
+        return descuento;
     }
 
-    public void setPorcentajeAd(double porcentajeAd) {
-        this.porcentajeAd = porcentajeAd;
+    public void setDescuento(double porcentajeAd) {
+        this.descuento = porcentajeAd;
     }
     
     @Override
     public void setValorPasaje() {
-        this.valorPasaje = (km * 0.15) + (tarifaBase + (tarifaBase*(porcentajeAd/100))));
+        this.valorPasaje = (km * 0.10) + (tarifaBase - ((tarifaBase)* (descuento / 100))) ;
+    }
+    
+    @Override
+    public String toString() {
+        String cadena = String.format("\tTranporte Normal\n"
+                + "Nombre = %s\n"
+                + "Cedula = %s\n"
+                + "Origen = %s\n"
+                + "Destino = %s\n"
+                + "Numero de Km = %.2f\n"
+                + "Tarifa Bases = %.2f\n"
+                + "Valor del Pasaje = %.2f\n"
+                + "Porcetanje Adicional = %.2f\n",
+                getNombre(),
+                getCiudad(),
+                getCedula(),
+                getOrigen(),
+                getDestino(),
+                getKm(),
+                getTarifaBase(),
+                getValorPasaje(),
+                getDescuento());
+
+        return cadena;
     }
     
 }

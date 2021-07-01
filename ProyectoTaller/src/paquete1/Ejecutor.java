@@ -17,6 +17,22 @@ public class Ejecutor {
         String nombreArchivo = "pasajes.data";
         ArrayList<PasajeInterCantonal> pasajes = new ArrayList<>();
         
+        PasajeNormal pn = new PasajeNormal("Jose","Loja", "199304", "Loja",
+                "Quito", 150.2 , 50.25, 8.00);
+                
+        PasajeMenorEdad me = new PasajeMenorEdad ("Daniel","Machala", "66043", "Cuenca",
+                "Loja", 300.00, 75.20, 9.00 );       
+        
+        PasajeTerceraEdad te = new PasajeTerceraEdad("Juan","Zaraguro", "87743", "Loja",
+                "GYE", 902.50, 45.70);    
+        
+        PasajeUniversitario pu = new PasajeUniversitario("UTPL", "Jamil","Vilca","98474", "Vilca",
+                "Loja", 90.5, 15.90);    
+        
+        pasajes.add(pn);
+        pasajes.add(me);
+        pasajes.add(te);
+        pasajes.add(pu);
         
         EscrituraArchivoSecuencial archivo = new EscrituraArchivoSecuencial(nombreArchivo);
 
