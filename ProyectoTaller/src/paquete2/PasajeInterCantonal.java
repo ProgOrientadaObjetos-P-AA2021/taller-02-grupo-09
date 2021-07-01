@@ -22,6 +22,17 @@ public abstract class PasajeInterCantonal implements Serializable{
     protected double tarifaBase;
     protected double valorPasaje;
 
+    public PasajeInterCantonal(String nombre, String ciudad, String cedula, String origen, String destino, double km, double tarifaBase, double valorPasaje) {
+        this.nombre = nombre;
+        this.ciudad = ciudad;
+        this.cedula = cedula;
+        this.origen = origen;
+        this.destino = destino;
+        this.km = km;
+        this.tarifaBase = tarifaBase;
+        this.valorPasaje = valorPasaje;
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -84,9 +95,6 @@ public abstract class PasajeInterCantonal implements Serializable{
 
     public abstract void setValorPasaje();
         
-    
-    
-    
     
     @Override
     public String toString(){
