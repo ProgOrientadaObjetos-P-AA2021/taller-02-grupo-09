@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package paquete2;
 
+import java.util.ArrayList;
 import java.io.Serializable;
 
 /**
@@ -22,7 +18,7 @@ public abstract class PasajeInterCantonal implements Serializable{
     protected double tarifaBase;
     protected double valorPasaje;
 
-    public PasajeInterCantonal(String nombre, String ciudad, String cedula, String origen, String destino, double km, double tarifaBase, double valorPasaje) {
+    public PasajeInterCantonal(String nombre, String ciudad, String cedula, String origen, String destino, double km, double tarifaBase) {
         this.nombre = nombre;
         this.ciudad = ciudad;
         this.cedula = cedula;
@@ -30,7 +26,7 @@ public abstract class PasajeInterCantonal implements Serializable{
         this.destino = destino;
         this.km = km;
         this.tarifaBase = tarifaBase;
-        this.valorPasaje = valorPasaje;
+        
     }
     
     public String getNombre() {
