@@ -13,13 +13,21 @@ import paquete2.PasajeInterCantonal;
 
 
 
+
+
+
 public class EscrituraArchivoSecuencial {
+    
+    
+    
 
     private String nombreArchivo;
     private ObjectOutputStream salida; // envía los datos a un archivo
     private PasajeInterCantonal registro;
     private ArrayList<PasajeInterCantonal> lista;
 
+    
+    
     public EscrituraArchivoSecuencial(String nombreArc) {
         nombreArchivo = nombreArc;
         establecerLista(); // obtener los valores (objetos)
@@ -27,6 +35,8 @@ public class EscrituraArchivoSecuencial {
         // System.out.println(obtenerListaProfesores().size());
         try // abre el archivo
         {
+            
+            
             salida = new ObjectOutputStream(
                     new FileOutputStream(nombreArchivo));
             // proceso para ingresar nuevamente los valores del archivo
@@ -35,6 +45,8 @@ public class EscrituraArchivoSecuencial {
                     establecerRegistro(obtenerLista().get(i));
                     establecerSalida();
                 }
+                
+                
             }
         } // fin de try
         catch (IOException ioException) {
@@ -42,15 +54,20 @@ public class EscrituraArchivoSecuencial {
         } // fin de catch
     }
     
+    
+    
     public void establecerNombreArchivo(String n){
         nombreArchivo = n;
     }
     
-    // agrega registros al archivo
+    
+    
     public void establecerRegistro(PasajeInterCantonal p) {
         registro = p;
     }
 
+    
+    
     public void establecerSalida() {
         try {
             salida.writeObject(registro); // envía el registro como salida
@@ -60,9 +77,9 @@ public class EscrituraArchivoSecuencial {
             System.err.println(ex);
         }
     }
+    
+    
 
-    // en el atributo listaPasajes obtenemos los registros 
-    // del archivo
     public void establecerLista() {
         LecturaArchivoSecuencial l = 
                 new LecturaArchivoSecuencial(obtenerNombreArchivo());
@@ -70,23 +87,29 @@ public class EscrituraArchivoSecuencial {
         lista = l.obtenerListaPasajes();
     }
 
+    
     public String obtenerNombreArchivo(){
         return nombreArchivo;
     }
     
+    
     public ArrayList<PasajeInterCantonal> obtenerLista() {
         return lista;
     }
+    
 
     public ObjectOutputStream obtenerSalida(){
         return salida;
     }
+    
     
     // obtener registros al archivo
     public PasajeInterCantonal obtenerRegistro() {
         // System.out.println(p);
         return registro;
     }
+    
+    
     
     
     public void cerrarArchivo() {

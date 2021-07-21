@@ -1,6 +1,10 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package paquete2;
 
-import java.util.ArrayList;
 import java.io.Serializable;
 
 /**
@@ -9,93 +13,112 @@ import java.io.Serializable;
  */
 public abstract class PasajeInterCantonal implements Serializable{
     
-    protected String nombre;
-    protected String ciudad;
-    protected String cedula;
-    protected String origen;
-    protected String destino;
-    protected double km;
+    
+    
+    protected String Nombre;
+    protected String Cedula;
+    protected String Origen;
+    protected String Destino;
+    protected double distanciaKM;
     protected double tarifaBase;
     protected double valorPasaje;
 
-    public PasajeInterCantonal(String nombre, String ciudad, String cedula, String origen, String destino, double km, double tarifaBase) {
-        this.nombre = nombre;
-        this.ciudad = ciudad;
-        this.cedula = cedula;
-        this.origen = origen;
-        this.destino = destino;
-        this.km = km;
-        this.tarifaBase = tarifaBase;
-        
+    
+    
+    
+    public PasajeInterCantonal(String nombre, String cedula, String origen, String distancia,
+            double distanciakm, double tarifa) {
+        Nombre = nombre;
+        Cedula = cedula;
+        Origen = origen;
+        Destino = distancia;
+        distanciaKM = distanciakm;
+        tarifaBase = tarifa;   
     }
     
-    public String getNombre() {
-        return nombre;
+    
+
+    public void establecerNombre(String n) {
+        Nombre = n;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    
+    
+    public void establecerCedula(String n) {
+        Cedula = n;
     }
 
-    public String getCiudad() {
-        return ciudad;
+    
+    
+    public void establecerOrigen(String n) {
+        Origen = n;
+    }
+    
+    
+
+    public void establecerDestino(String n) {
+        Destino = n;
+    }
+    
+    
+
+    public void establecerDistanciKm(double n) {
+        distanciaKM = n;
+    }
+    
+    
+
+    public void establecerTarifaBase(double n) {
+        tarifaBase = n;
     }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    
+    
+    public abstract void establecerValPasaje();
+
+    public String obtenerNombre() {
+        return Nombre;
     }
 
-    public String getCedula() {
-        return cedula;
+    
+    
+    public String obtenerCedula() {
+        return Cedula;
     }
 
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
+    
+    
+    public String obtenerOrigen() {
+        return Origen;
     }
 
-    public String getOrigen() {
-        return origen;
+    
+    
+    public double obtenerDistanciaKm() {
+        return distanciaKM;
     }
 
-    public void setOrigen(String origen) {
-        this.origen = origen;
-    }
-
-    public String getDestino() {
-        return destino;
-    }
-
-    public void setDestino(String destino) {
-        this.destino = destino;
-    }
-
-    public double getKm() {
-        return km;
-    }
-
-    public void setKm(double km) {
-        this.km = km;
-    }
-
-    public double getTarifaBase() {
+    
+    
+    public double obtenerTarifaBase() {
         return tarifaBase;
     }
 
-    public void setTarifaBase(double tarifaBase) {
-        this.tarifaBase = tarifaBase;
-    }
-
-    public double getValorPasaje() {
+    
+    
+    public double obtenerValPasaje() {
         return valorPasaje;
     }
 
-    public abstract void setValorPasaje();
-        
+    
     
     @Override
-    public String toString(){
-        return String.format("Pasaje.");
+    public String toString() {
+        String cadena = String.format("\nNombre: %s\nCedula: %s\nOrigen: %s\n"
+                + "Destino: %s\nDistancia en Km: %.2f\nTarifa Base: %.2f", 
+                Nombre, Cedula, Origen, Destino, distanciaKM, tarifaBase);
+        return cadena;
     }
-    
-    
+
+
 }

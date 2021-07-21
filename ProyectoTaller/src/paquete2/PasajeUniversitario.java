@@ -1,57 +1,60 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package paquete2;
 
 import java.io.Serializable;
 
 /**
  *
- * @author Jose Cordova, Jamil Sebastian
+ * @author reroes
  */
 public class PasajeUniversitario extends PasajeInterCantonal {
     
-    protected String nombreU;
+    
+    
+    private String nombreUniversidad;
 
-    public PasajeUniversitario(String nombreU, String nombre, String ciudad, String cedula, String origen, String destino, double km, double tarifaBase) {
-        super(nombre, ciudad, cedula, origen, destino, km, tarifaBase);
-        this.nombreU = nombreU;
-        setValorPasaje();
+    
+    
+    public PasajeUniversitario(String nombre, String cedula, String origen, String distancia, 
+            double distanciakm, double tarifa, String nombreuniversidad) {
+        super(nombre, cedula, origen, distancia, distanciakm, tarifa);
+        nombreUniversidad = nombreuniversidad;
     }
 
-    public String getNombreU() {
-        return nombreU;
+    
+    
+    public void establecerNombreUni(String n) {
+        nombreUniversidad = n;
     }
 
-    public void setNombreU(String nombreU) {
-        this.nombreU = nombreU;
-    }
+    
     
     @Override
-    public void setValorPasaje() {
-        this.valorPasaje = (tarifaBase/ 2) ;
+    public void establecerValPasaje() {
+        valorPasaje = tarifaBase / 2;
+
+    }
+
+    
+    
+    public String obtenerNombreUni() {
+        return nombreUniversidad;
     }
     
+    
+    
     @Override
-    public String toString() {
-        String cadena = String.format("\tTranporte Universitario\n"
-                + "Nombre Universidad"
-                + "Nombre = %s\n"
-                + "Ciudad = %s\n"
-                + "Cedula = %s\n"
-                + "Origen = %s\n"
-                + "Destino = %s\n"
-                + "Numero de Km = %.2f\n"
-                + "Tarifa Bases = %.2f\n"
-                + "Valor del Pasaje = %.2f\n"
-                + "Porcetanje Adicional = %.2f\n",
-                getNombreU(),
-                getNombre(),
-                getCiudad(),
-                getCedula(),
-                getOrigen(),
-                getDestino(),
-                getKm(),
-                getTarifaBase(),
-                getValorPasaje());
-
+    public String toString(){
+        String cadena = String.format("%s\nNombre de la Universidad: %s\n"
+                + "Valor del pasaje: %.2f\n",super.toString(), 
+                nombreUniversidad,valorPasaje);
+        
         return cadena;
     }
+    
+    
 }

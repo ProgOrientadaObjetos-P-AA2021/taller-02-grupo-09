@@ -17,22 +17,43 @@ public class Ejecutor {
         String nombreArchivo = "pasajes.data";
         ArrayList<PasajeInterCantonal> pasajes = new ArrayList<>();
         
-        PasajeNormal pn = new PasajeNormal("Jose","Loja", "199304", "Loja",
-                "Quito", 150.2 , 50.25, 8.00);
-                
-        PasajeMenorEdad me = new PasajeMenorEdad ("Daniel","Machala", "66043", "Cuenca",
-                "Loja", 300.00, 75.20, 9.00 );       
         
-        PasajeTerceraEdad te = new PasajeTerceraEdad("Juan","Zaraguro", "87743", "Loja",
-                "GYE", 902.50, 45.70);    
         
-        PasajeUniversitario pu = new PasajeUniversitario("UTPL", "Jamil","Vilca","98474", "Vilca",
-                "Loja", 90.5, 15.90);    
+        PasajeNormal pasajeNormal = new PasajeNormal("Jamil",
+                "1532", "Quito", "Zamora", 342, 15, 65);
         
-        pasajes.add(pn);
-        pasajes.add(me);
-        pasajes.add(te);
-        pasajes.add(pu);
+        
+        
+        PasajeTerceraEdad pasajeTerceraEdad = new PasajeTerceraEdad("Tomas",
+                "987654", "Loja", "Cariamanga", 5, 12);
+
+        
+        
+        PasajeMenorEdad pasajeMenorEdad = new PasajeMenorEdad("Juan", "1123456",
+                "Loja", "Catamayo",03, 13, 86);
+        
+        
+        
+        PasajeUniversitario pasajeUniversitario = new PasajeUniversitario("Romeo", 
+                "12564", "malacatos",
+                "Vilcabamba", 16, 9.15, "Nacional");
+
+        
+        
+        
+        pasajes.add(pasajeMenorEdad);
+        pasajes.add(pasajeUniversitario);
+        pasajes.add(pasajeNormal);
+        pasajes.add(pasajeTerceraEdad);
+        
+        
+        
+        
+        for (int i = 0; i < pasajes.size(); i++) {
+            pasajes.get(i).establecerValPasaje();
+        }
+
+        
         
         EscrituraArchivoSecuencial archivo = new EscrituraArchivoSecuencial(nombreArchivo);
 
@@ -44,6 +65,8 @@ public class Ejecutor {
             archivo.establecerSalida();
         }
 
+        
+        
         archivo.cerrarArchivo();
 
         LecturaArchivoSecuencial lectura = new LecturaArchivoSecuencial(nombreArchivo);

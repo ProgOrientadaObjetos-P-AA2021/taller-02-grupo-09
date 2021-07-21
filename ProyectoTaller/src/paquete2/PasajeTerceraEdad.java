@@ -1,44 +1,43 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package paquete2;
 
 import java.io.Serializable;
 
 /**
  *
- * @author Jose Cordova, Jamil Sebastian
+ * @author reroes
  */
 public class PasajeTerceraEdad extends PasajeInterCantonal {
-
-    public PasajeTerceraEdad(String nombre, String ciudad, String cedula, String origen, String destino, double km, double tarifaBase) {
-        super(nombre, ciudad, cedula, origen, destino, km, tarifaBase);
-        setValorPasaje();
+    
+    public PasajeTerceraEdad(String nombre, String cedula, String origen, String distancia, 
+            double distanciakm, double tarifa) {
+        super(nombre, cedula, origen, distancia, distanciakm, tarifa);
     }
+    
+    
+    
+    
 
     @Override
-    public void setValorPasaje() {
-        this.valorPasaje = (km * 0.5) + (tarifaBase/ 2) ;
+    public void establecerValPasaje() {
+        valorPasaje = ((distanciaKM * 0.5) + (tarifaBase/2));
     }
+    
+    
+    
+    
     
     @Override
     public String toString() {
-        String cadena = String.format("\tTranporte Tercera Edad\n"
-                + "Nombre = %s\n"
-                + "Ciudad = %s\n"
-                + "Cedula = %s\n"
-                + "Origen = %s\n"
-                + "Destino = %s\n"
-                + "Numero de Km = %.2f\n"
-                + "Tarifa Bases = %.2f\n"
-                + "Valor del Pasaje = %.2f\n",
-                getNombre(),
-                getCiudad(),
-                getCedula(),
-                getOrigen(),
-                getDestino(),
-                getKm(),
-                getTarifaBase(),
-                getValorPasaje());
-
+        String cadena =  String.format("%s\nValor del pasaje: %.2f\n", 
+                super.toString(), 
+                obtenerValPasaje());
         return cadena;
-    }
         
+    }
+    
 }
